@@ -1,14 +1,18 @@
-const http = require("http");
-const url  = require("url");
+const http   = require("http");
+const url    = require("url");
+
 /*
 createServer (req, res) : return an object that have listen method
 
 listen(PORT)
 */
-function start() {
+function start(router) {
   function onRequest(request, response) {
     const pathName = url.parse(request.url).pathname ;
     console.log(`Request for ${ pathName } received!`);
+
+    router(pathName);
+
     response.writeHead( 200, {"Content-Type": "text/plain"} );
     response.write("Hello World !");
     response.end();
