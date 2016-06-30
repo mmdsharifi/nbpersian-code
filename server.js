@@ -6,12 +6,12 @@ createServer (req, res) : return an object that have listen method
 
 listen(PORT)
 */
-function start(router) {
+function start(router, handle) {
   function onRequest(request, response) {
     const pathName = url.parse(request.url).pathname ;
     console.log(`Request for ${ pathName } received!`);
 
-    router(pathName);
+    router(handle, pathName);
 
     response.writeHead( 200, {"Content-Type": "text/plain"} );
     response.write("Hello World !");

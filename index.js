@@ -1,4 +1,15 @@
-const start = require('./server');
-const router = require('./router');
+'use strict';
+const server          = require('./server');
+const router          = require('./router');
+const requestHandlers = require('./requestHandlers');
 
-start.fire(router.route);
+let handle = {};
+
+//handle ["/" , "/start" , "/upload"] = [ requestHandlers.start , requestHandlers.start , requestHandlers.upload ] ;
+
+handle ["/"] = requestHandlers.start;
+handle ["/start"] = requestHandlers.start;
+handle ["/upload"] = requestHandlers.upload;
+
+console.log(handle);
+server.fire(router.route, handle);
