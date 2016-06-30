@@ -1,9 +1,17 @@
 const http = require("http");
+/*
+createServer (req, res) : return an object that have listen method
 
-http.createServer( (request, response) => {
-  response.writeHead( 200, {"Content-Type": "text/plain"});
+listen(PORT)
+*/
+
+function onRequest(request, response) {
+  console.log("Request received!");
+  response.writeHead( 200, {"Content-Type": "text/plain"} );
   response.write("Hello World !");
   response.end();
-}).listen(8888);
+}
+
+http.createServer( onRequest ).listen( 8888 );
 
 console.log(`Server Run on port 8888`);
