@@ -1,0 +1,23 @@
+{
+  "name": "nbpersian",
+  "version": "0.1.0",
+  "description": "nbpersian codes!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "?"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript"
+  ],
+  "author": "Mohammad Sharifi",
+  "license": "ISC",
+  "devDependencies": {
+    "formidable": "^1.0.17"
+  }
+}
